@@ -1,0 +1,19 @@
+{
+  "name": "homerepository",
+  "version": "2.0.0",
+  "description": "Home Repository 2.0 - A unified media library, book indexer, and file manager for household information organisation.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rorasa/homerepository.git"
+  },
+  "author": "Wattanit Hotrakool",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/rorasa/homerepository/issues"
+  },
+  "homepage": "https://github.com/rorasa/homerepository#readme"
+}
