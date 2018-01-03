@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/rorasa/homerepository/issues"
   },
-  "homepage": "https://github.com/rorasa/homerepository#readme"
+  "homepage": "https://github.com/rorasa/homerepository#readme",
+  "dependencies": {
+    "mongodb": "^3.0.1",
+    "mongoose": "^5.0.0-rc1"
+  },
+  "devDependencies": {
+    "mocha": "^4.1.0",
+    "nodemon": "^1.14.7"
+  }
 }
