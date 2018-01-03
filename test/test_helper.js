@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 
-before(()=>{
+before((done)=>{
   mongoose.connect('mongodb://localhost/homerepository');
 
   db.once('open', ()=>{
@@ -12,7 +12,11 @@ before(()=>{
     console.log('Connection error!');
   });
 
-  db.collections.entries.drop();
+  db.collections.entries.drop(()=>{
+    db.collections.categories.drop(()=>{
+        done();
+    });
+  });
 });
 
 // beforeEach((done)=>{
