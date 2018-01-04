@@ -2,7 +2,7 @@
   "name": "homerepository",
   "version": "2.0.0",
   "description": "Home Repository 2.0 - A unified media library, book indexer, and file manager for household information organisation.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "nodemon --exec 'mocha'"
   },
