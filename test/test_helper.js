@@ -14,7 +14,9 @@ before((done)=>{
 
   db.collections.entries.drop(()=>{
     db.collections.categories.drop(()=>{
+      db.collections.storages.drop(()=>{
         done();
+      });
     });
   });
 });
