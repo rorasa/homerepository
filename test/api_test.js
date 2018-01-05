@@ -19,4 +19,15 @@ describe('Backend API Test', ()=>{
     });
   });
 
+  describe('Test entry APIs', ()=>{
+    it('Get /api/entry/3', (done)=>{
+      chai.request(app)
+        .get('/api/entry/3')
+        .end((err,res)=>{
+          assert.strictEqual(res.status, 200);
+          done();
+        });
+    });
+  });
+
 });
