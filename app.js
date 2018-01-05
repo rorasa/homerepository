@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 const entry = require('./api/entry');
 const category = require('./api/category');
+const storage = require('./api/storage');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -42,6 +43,17 @@ app.route("/api/entry")
   .post(entry.createAnEntry)
   .put(entry.invalidRequest)
   .delete(entry.invalidRequest);
+
+app.route("/api/storage/:collectionname")
+  .get(storage.getStorageOfCollection)
+  .post(storage.addNewStorageToCollection)
+  .put(storage.invalidRequest)
+  .delete(storage.invalidRequest);
+app.route("/api/storage")
+  .get(storage.invalidRequest)
+  .post(storage.invalidRequest)
+  .put(storage.invalidRequest)
+  .delete(storage.invalidRequest);
 
 
 app.listen(3000, ()=>{

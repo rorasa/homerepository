@@ -41,4 +41,15 @@ describe('Backend API Test', ()=>{
     });
   });
 
+  describe('Test storage APIs', ()=>{
+    it('Get /api/storage/books', (done)=>{
+      chai.request(app)
+        .get('/api/storage/books')
+        .end((err,res)=>{
+          assert.strictEqual(res.status, 200);
+          done();
+        });
+    });
+  });
+
 });
