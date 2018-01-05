@@ -1,9 +1,9 @@
 const chai = require('chai');
 const assert = chai.assert;
 
-const Entry = require('../src/Entry');
-const Category = require('../src/Category');
-const Storage = require('../src/Storage');
+const Entry = require('../api/models/Entry');
+const Category = require('../api/models/Category');
+const Storage = require('../api/models/Storage');
 
 describe('Mongoose Schema Test', ()=>{
   describe('Testing Entry class', ()=>{
