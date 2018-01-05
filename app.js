@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 
 const entry = require('./api/entry');
+const category = require('./api/category');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -19,6 +20,17 @@ app.get('/', (req, res)=>{
 app.get('/test', (req, res)=>{
   res.send('Test page');
 })
+
+app.route("/api/category/:categoryname")
+  .get(category.getCategoryByName)
+  .post(category.invalidRequest)
+  .put(category.updateCategoryByName)
+  .delete(category.deleteCategoryByName);
+app.route("/api/category")
+  .get(category.invalidRequest)
+  .post(category.addNewCategory)
+  .put(category.invalidRequest)
+  .delete(category.invalidRequest);
 
 app.route("/api/entry/:id")
   .get(entry.getEntryById)

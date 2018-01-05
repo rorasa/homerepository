@@ -30,4 +30,15 @@ describe('Backend API Test', ()=>{
     });
   });
 
+  describe('Test category APIs', ()=>{
+    it('Get /api/category/books', (done)=>{
+      chai.request(app)
+        .get('/api/category/books')
+        .end((err,res)=>{
+          assert.strictEqual(res.status, 200);
+          done();
+        });
+    });
+  });
+
 });
