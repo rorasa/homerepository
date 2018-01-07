@@ -1,12 +1,22 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App-sidebar {
   border-right: solid;
   border-right-width: 2px;
   border-right-color: rgb(100, 100, 100);
-  min-height: 100vh;
+  min-height: 90vh;
+  overflow-x: scroll;
+  text-align: center;
+}
+
+.App-sidebar .logo {
+
+}
+
+.App-sidebar .nav {
+  text-align: left;
 }
 
 .App-footer {

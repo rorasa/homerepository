@@ -20,10 +20,10 @@ class App extends Component {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column className='App-sidebar' width={4} only='computer'>
+            <Grid.Column className='App-sidebar' width={4} only='computer tablet'>
               <Sidebar />
             </Grid.Column>
-            <Grid.Column mobile={16} computer={12}>
+            <Grid.Column mobile={16} tablet={12} computer={12}>
               Main view
             </Grid.Column>
           </Grid.Row>
