@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import 'semantic-ui-css/semantic.min.css';
 import './App.css';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Row, Col } from 'react-bootstrap';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 
@@ -11,26 +9,26 @@ class App extends Component {
     return (
       <div className="App">
         <Grid>
-          <Grid.Row only='mobile' color='green'>
-            <Grid.Column width={4}>
+          <Row only='mobile' color='green'>
+            <Col xs={3} smHidden mdHidden lgHidden>
               Title
-            </Grid.Column>
-            <Grid.Column width={12}>
+            </Col>
+            <Col xs={9} smHidden mdHidden lgHidden>
               Mobile Navigation
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column className='App-sidebar' width={4} only='computer tablet'>
-              <Sidebar />
-            </Grid.Column>
-            <Grid.Column mobile={16} tablet={12} computer={12}>
+            </Col>
+          </Row>
+          <Row>
+            <Col className='App-sidebar' sm={3} xsHidden>
+              <Sidebar/>
+            </Col>
+            <Col xs={12} sm={9}>
               Main view
-            </Grid.Column>
-          </Grid.Row>
+            </Col>
+          </Row>
         </Grid>
 
         <div className="App-footer">
-          <Footer />
+          <Footer/>
         </div>
       </div>
     );

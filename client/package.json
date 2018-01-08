@@ -1,13 +1,12 @@
 {
-  "name": "Homerepository client",
+  "name": "Homerepository-client",
   "version": "2.0.0",
   "private": true,
   "dependencies": {
     "react": "^16.2.0",
+    "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17",
-    "semantic-ui-css": "^2.2.12",
-    "semantic-ui-react": "^0.77.1"
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",

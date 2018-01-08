@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import 'semantic-ui-css/semantic.min.css';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class Sidebar extends Component {
   render() {

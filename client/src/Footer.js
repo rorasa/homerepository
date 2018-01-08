@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import 'semantic-ui-css/semantic.min.css';
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class Footer extends Component {
   render() {
