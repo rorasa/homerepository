@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col} from 'react-bootstrap';
+import Navigation from './Navigation';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 
@@ -8,7 +9,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Grid>
+        <Navigation/>
+        <Grid fluid>
           <Row only='mobile' color='green'>
             <Col xs={3} smHidden mdHidden lgHidden>
               Title

@@ -24,3 +24,7 @@
   border-top-width: 2px;
   border-top-color: rgb(100, 100, 100);
 }
+
+.bg-red {
+  background-color: red;
+}
