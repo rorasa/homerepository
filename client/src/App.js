@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Grid, Row, Col} from 'react-bootstrap';
 import Navigation from './Navigation';
+import Directory from './Directory';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 
@@ -24,7 +25,7 @@ class App extends Component {
               <Sidebar/>
             </Col>
             <Col xs={12} sm={9}>
-              Main view
+              <Directory/>
             </Col>
           </Row>
         </Grid>
