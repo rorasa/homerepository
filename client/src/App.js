@@ -5,6 +5,7 @@ import { BrowserRouter as Router,
   Route, Link} from 'react-router-dom';
 
 import Navigation from './Navigation';
+import Collection from './Collection';
 import Directory from './Directory';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
@@ -31,7 +32,10 @@ class App extends Component {
               <Router>
                 <div>
                   <Route exact path="/" component={Sidebar}/>
-                  <Route path="/directory" component={Directory}/>
+                  <Route exact path="/directory" component={Directory}/>
+                  <Route exact path="/new-entry" component={Sidebar}/>
+                  <Route path="/directory/:collectionName" component={Collection}/>
+                  <Route path="/entry/:entryId" component={Sidebar}/>
                 </div>
               </Router>
             </Col>

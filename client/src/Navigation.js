@@ -14,10 +14,10 @@ import { Nav, NavItem, Navbar,
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="#">
+              <NavItem eventKey={1} href="/directory">
                 Directory
               </NavItem>
-              <NavItem eventKey={2} href="#">
+              <NavItem eventKey={2} href="/new-entry">
                 Submit new entry
               </NavItem>
             </Nav>

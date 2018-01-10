@@ -6,7 +6,7 @@ class Directory extends Component {
    return (
      <div>
       <Breadcrumb>
-        <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+        <Breadcrumb.Item href="/directory">Home</Breadcrumb.Item>
         <Breadcrumb.Item href="#" active>Directory</Breadcrumb.Item>
       </Breadcrumb>
       <DirectoryList/>
@@ -18,21 +18,23 @@ class Directory extends Component {
 class DirectoryList extends Component {
   render(){
     return (
-      <ul>
-        <li>books
-          <ul>
-            <li>Printed Books
-              <ul>
-                <li>Fictions</li>
-                <li>Non-fictions</li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>Movies</li>
-        <li>Music</li>
-        <li>Photos</li>
-      </ul>
+      <div>
+        <h1>Collection Directory</h1>
+
+        <a href="/directory/books">
+          <h2>Books</h2>
+        </a>
+        <a href="/directory/movies">
+          <h2>Movies</h2>
+        </a>
+        <a href="/directory/music">
+          <h2>Music</h2>
+        </a>
+        <a href="/directory/photos">
+          <h2>Photos</h2>
+        </a>
+
+      </div>
     );
   }
 }
