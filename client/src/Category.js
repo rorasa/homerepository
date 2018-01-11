@@ -15,8 +15,8 @@ class Category extends Component {
     return(
       <div>
         <Breadcrumb>
-          <Breadcrumb.Item href="/directory">Home</Breadcrumb.Item>
-          <Breadcrumb.Item href={"/directory/"+this.state.collectionName}>{this.state.collectionName}</Breadcrumb.Item>
+          <Breadcrumb.Item href="/client/directory">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href={"/client/directory/"+this.state.collectionName}>{this.state.collectionName}</Breadcrumb.Item>
           <Breadcrumb.Item href="#" active>{this.state.categoryName}</Breadcrumb.Item>
         </Breadcrumb>
 

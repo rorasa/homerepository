@@ -6,7 +6,7 @@ class Directory extends Component {
    return (
      <div>
       <Breadcrumb>
-        <Breadcrumb.Item href="/directory">Home</Breadcrumb.Item>
+        <Breadcrumb.Item href="/client/directory">Home</Breadcrumb.Item>
         <Breadcrumb.Item href="#" active>Directory</Breadcrumb.Item>
       </Breadcrumb>
       <DirectoryList/>
@@ -21,16 +21,16 @@ class DirectoryList extends Component {
       <div>
         <h1>Collection Directory</h1>
 
-        <a href="/directory/books">
+        <a href="/client/directory/books">
           <h2>Books</h2>
         </a>
-        <a href="/directory/movies">
+        <a href="/client/directory/movies">
           <h2>Movies</h2>
         </a>
-        <a href="/directory/music">
+        <a href="/client/directory/music">
           <h2>Music</h2>
         </a>
-        <a href="/directory/photos">
+        <a href="/client/directory/photos">
           <h2>Photos</h2>
         </a>
 

@@ -36,7 +36,7 @@ class CollectionList extends Component {
     return (
       <div>
        <Breadcrumb>
-         <Breadcrumb.Item href="/directory">Home</Breadcrumb.Item>
+         <Breadcrumb.Item href="/client/directory">Home</Breadcrumb.Item>
          <Breadcrumb.Item href="#" active>{this.props.collectionName}</Breadcrumb.Item>
        </Breadcrumb>
 

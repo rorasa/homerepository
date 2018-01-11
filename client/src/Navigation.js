@@ -8,16 +8,16 @@ import { Nav, NavItem, Navbar,
         <Navbar collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="/">Home Repository</a>
+              <a href="/client">Home Repository</a>
             </Navbar.Brand>
             <Navbar.Toggle/>
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="/directory">
+              <NavItem eventKey={1} href="/client/directory">
                 Directory
               </NavItem>
-              <NavItem eventKey={2} href="/new-entry">
+              <NavItem eventKey={2} href="/client/new-entry">
                 Submit new entry
               </NavItem>
             </Nav>

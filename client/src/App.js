@@ -5,6 +5,7 @@ import { BrowserRouter as Router,
   Route, Link} from 'react-router-dom';
 
 import Navigation from './Navigation';
+import Login from './Login';
 import Collection from './Collection';
 import Directory from './Directory';
 import Sidebar from './Sidebar';
@@ -16,14 +17,6 @@ class App extends Component {
       <div className="App">
         <Navigation/>
         <Grid fluid>
-          <Row only='mobile' color='green'>
-            <Col xs={3} smHidden mdHidden lgHidden>
-              Title
-            </Col>
-            <Col xs={9} smHidden mdHidden lgHidden>
-              Mobile Navigation
-            </Col>
-          </Row>
           <Row>
             <Col className='App-sidebar' sm={3} xsHidden>
               <Sidebar/>
@@ -31,11 +24,12 @@ class App extends Component {
             <Col xs={12} sm={9}>
               <Router>
                 <div>
-                  <Route exact path="/" component={Sidebar}/>
-                  <Route exact path="/directory" component={Directory}/>
-                  <Route exact path="/new-entry" component={Sidebar}/>
-                  <Route path="/directory/:collectionName" component={Collection}/>
-                  <Route path="/entry/:entryId" component={Sidebar}/>
+                  <Route exact path="/" component={NA}/>
+                  <Route exact path="/client" component={Login}/>
+                  <Route exact path="/client/directory" component={Directory}/>
+                  <Route exact path="/client/new-entry" component={Sidebar}/>
+                  <Route path="/client/directory/:collectionName" component={Collection}/>
+                  <Route path="/client/entry/:entryId" component={Sidebar}/>
                 </div>
               </Router>
             </Col>
@@ -48,6 +42,15 @@ class App extends Component {
       </div>
     );
   }
+}
+
+const NA = () =>{
+  return (
+    <div>
+      <strong>Not Available</strong>
+      <p>This path is to be supplied by Express Server, which is not available</p>
+    </div>
+  );
 }
 
 export default App;
