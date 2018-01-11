@@ -10,6 +10,7 @@ import Collection from './Collection';
 import Directory from './Directory';
 import Entry from './Entry';
 import Sidebar from './Sidebar';
+import AdminMain from './admin/AdminMain';
 import Footer from './Footer';
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
                   <Route exact path="/client/new-entry" component={Sidebar}/>
                   <Route path="/client/directory/:collectionName" component={Collection}/>
                   <Route path="/client/entry/:entryId" component={Entry}/>
+                  <Route exact path="/client/admin" component={AdminMain}/>
                 </div>
               </Router>
             </Col>
