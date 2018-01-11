@@ -8,6 +8,7 @@ import Navigation from './Navigation';
 import Login from './Login';
 import Collection from './Collection';
 import Directory from './Directory';
+import Entry from './Entry';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
 
@@ -29,7 +30,7 @@ class App extends Component {
                   <Route exact path="/client/directory" component={Directory}/>
                   <Route exact path="/client/new-entry" component={Sidebar}/>
                   <Route path="/client/directory/:collectionName" component={Collection}/>
-                  <Route path="/client/entry/:entryId" component={Sidebar}/>
+                  <Route path="/client/entry/:entryId" component={Entry}/>
                 </div>
               </Router>
             </Col>
