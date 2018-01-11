@@ -6,13 +6,13 @@ class AdminMain extends Component {
       <div>
         <h1>Admin Panel</h1>
 
-        <h2>Manage Collections</h2>
+        <h2><a href="/client/admin/collection">Manage Collections</a></h2>
         <p>Create, manage, and change collecitons and their categories.</p>
 
-        <h2>Manage Storage</h2>
+        <h2><a href="/client/admin/storage">Manage Storage</a></h2>
         <p>Manage storage locations and devices.</p>
 
-        <h2>Manage Users</h2>
+        <h2><a href="/client/admin/user">Manage Users</a></h2>
         <p>Create, manage, and edit user accounts.</p>
 
       </div>
