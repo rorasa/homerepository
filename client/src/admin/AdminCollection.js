@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/fontawesome-all.css';
+import { Modal, Button } from 'react-bootstrap';
 
 class AdminCollection extends Component {
 
@@ -16,8 +17,7 @@ class AdminCollection extends Component {
         <AdminCollectionItem/>
         <AdminCollectionItem/>
 
-        <i className="fas fa-plus"></i>&nbsp;
-        <strong>New Collection</strong>
+        <NewCollectionModal/>
 
       </div>
     );
@@ -72,6 +72,49 @@ class AdminCollectionItem extends Component {
             </li>
           </ul>
         </div>
+      </div>
+    );
+  }
+}
+
+class NewCollectionModal extends Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+      isShowed: false
+    };
+
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+  }
+
+  handleClose() {
+    this.setState({ isShowed: false });
+  }
+
+  handleOpen() {
+    this.setState({ isShowed: true });
+  }
+
+  render(){
+    return (
+      <div>
+        <i className="fas fa-plus"></i>&nbsp;
+        <a onClick={this.handleOpen}><strong>New Collection</strong></a>
+
+        <Modal show={this.state.isShowed} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Create new collection</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            New colleciton form
+          </Modal.Body>
+          <Modal.Footer>
+            <Button bsStyle="primary">Create</Button>
+            <Button onClick={this.handleClose}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }
