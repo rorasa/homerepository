@@ -20,7 +20,6 @@ class AdminCollection extends Component {
         <AdminCollectionItem/>
 
         <NewCollectionModal/>
-
       </div>
     );
   }
@@ -53,20 +52,20 @@ class AdminCollectionItem extends Component {
             <i className={collapseArrow}></i>&nbsp;
             <strong>Books</strong>
           </a>&nbsp;
-          <i className="far fa-edit fa-lg"></i>&nbsp;
-          <i className="fas fa-trash fa-lg"></i>
+          <i className="far fa-edit"></i>&nbsp;
+          <DeleteModal/>
         </p>
         <div className={showCollapse} id="entry1">
           <ul>
             <li>
               Fictions &nbsp;
               <i className="far fa-edit"></i>&nbsp;
-              <i className="fas fa-trash"></i>
+              <DeleteModal/>
             </li>
             <li>
               Non-fictions &nbsp;
               <i className="far fa-edit"></i>&nbsp;
-              <i className="fas fa-trash"></i>
+              <DeleteModal/>
             </li>
             <li>
               <i className="fas fa-plus fa-sm"></i>&nbsp;
@@ -152,6 +151,61 @@ class NewCollectionModal extends Component {
           </Modal.Footer>
         </Modal>
       </div>
+    );
+  }
+}
+
+class DeleteModal extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isShowed: false
+    };
+
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+  }
+
+  handleClose(){
+    this.setState({ isShowed: false });
+  }
+
+  handleOpen(){
+    this.setState({ isShowed: true });
+  }
+
+  render(){
+    return (
+      <span>
+        <a onClick={this.handleOpen}>
+          <i className="fas fa-trash"></i>
+        </a>
+
+        <Modal show={this.state.isShowed} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Are you sure?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Would you like to delete this? This cannot be undone.
+            <form>
+              <FormGroup>
+                <ControlLabel>
+                  To proceed, type in the collection name here.
+                </ControlLabel>
+                <FormControl
+                  type="text"
+                  value={null}
+                  placeholder="Think twice!"
+                />
+              </FormGroup>
+            </form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button bsStyle="danger">Delete</Button>
+            <Button onClick={this.handleClose}>Cancel</Button>
+          </Modal.Footer>
+        </Modal>
+      </span>
     );
   }
 }
