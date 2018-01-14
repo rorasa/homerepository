@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../css/fontawesome-all.css';
-import { Modal, Button } from 'react-bootstrap';
+import { Modal,
+  FormGroup, FormControl, ControlLabel,
+  Checkbox, Button } from 'react-bootstrap';
 
 class AdminCollection extends Component {
 
@@ -108,7 +110,41 @@ class NewCollectionModal extends Component {
             <Modal.Title>Create new collection</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            New colleciton form
+            <form>
+              <FormGroup controlId="NewCollection">
+                <ControlLabel>
+                  Collection name
+                </ControlLabel>
+                <FormControl
+                  type="text"
+                  value={null}
+                  placeholder="Collection name"
+                  onChange={null}
+                />
+              </FormGroup>
+              <FormGroup>
+                <ControlLabel>
+                  Options
+                </ControlLabel>
+                <Checkbox>
+                  Private collection
+                </Checkbox>
+              </FormGroup>
+              <FormGroup>
+                <ControlLabel>
+                  Storage options
+                </ControlLabel>
+                <FormControl componentClass="select" placeholder="Select storage">
+                  <option value={null}>Disk 1</option>
+                  <option value={null}>Disk 2</option>
+                  <option value={null}>Disk 3</option>
+                  <option value={null}>Add new storage</option>
+                </FormControl>
+                <Checkbox>
+                  Encrypt storage
+                </Checkbox>
+              </FormGroup>
+            </form>
           </Modal.Body>
           <Modal.Footer>
             <Button bsStyle="primary">Create</Button>
