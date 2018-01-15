@@ -68,8 +68,7 @@ class AdminCollectionItem extends Component {
               <DeleteModal/>
             </li>
             <li>
-              <i className="fas fa-plus fa-sm"></i>&nbsp;
-              New Category
+              <NewCatagoryModal/>
             </li>
           </ul>
         </div>
@@ -142,6 +141,69 @@ class NewCollectionModal extends Component {
                 <Checkbox>
                   Encrypt storage
                 </Checkbox>
+              </FormGroup>
+            </form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button bsStyle="primary">Create</Button>
+            <Button onClick={this.handleClose}>Close</Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
+    );
+  }
+}
+
+class NewCatagoryModal extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isShowed: false
+    }
+
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+  }
+
+  handleClose(){
+    this.setState({ isShowed: false });
+  }
+
+  handleOpen(){
+    this.setState({ isShowed: true });
+  }
+
+  render(){
+    return(
+      <div>
+        <i className="fas fa-plus fa-sm"></i>&nbsp;
+        <a onClick={this.handleOpen}>New Category</a>
+        <Modal show={this.state.isShowed} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Create new category</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <form>
+              <FormGroup controlId="NewCategory">
+                <ControlLabel>
+                  Category name
+                </ControlLabel>
+                <FormControl
+                  type="text"
+                  value={null}
+                  placeholder="Category name"
+                  onChange={null}
+                />
+              </FormGroup>
+              <FormGroup>
+                <ControlLabel>
+                  Create this category under
+                </ControlLabel>
+                <FormControl componentClass="select" placeholder="Books">
+                  <option value={null}>Books</option>
+                  <option value={null}>--Category A</option>
+                  <option value={null}>--Category B</option>
+                </FormControl>
               </FormGroup>
             </form>
           </Modal.Body>
