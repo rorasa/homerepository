@@ -82,11 +82,16 @@ class NewCollectionModal extends Component {
   constructor(props){
     super(props);
     this.state = {
-      isShowed: false
+      isShowed: false,
+      collectionName: null,
+      isPrivateCheck: false,
+      storageName: "Select storage",
+      isStorageEncrypted: false
     };
 
     this.handleClose = this.handleClose.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleClose() {
@@ -95,6 +100,31 @@ class NewCollectionModal extends Component {
 
   handleOpen() {
     this.setState({ isShowed: true });
+  }
+
+  handleSubmit(e) {
+    console.log("Submiting");
+    e.preventDefault();
+
+    let payload = {
+      foo: "Hello ",
+      bar: this.state.collectionName,
+      zoo: this.state.isPrivateCheck,
+      hxa: this.state.storageName,
+      xee: this.state.isStorageEncrypted
+    };
+
+    fetch("/api/category", {
+      method: 'post',
+      headers: {
+        'Content-type': "application/json"
+      },
+      body: JSON.stringify(payload)
+    }).then((res)=>{
+      console.log(res);
+    }).catch((res)=>{
+      console.log(res);
+    });
   }
 
   render(){
@@ -115,16 +145,22 @@ class NewCollectionModal extends Component {
                 </ControlLabel>
                 <FormControl
                   type="text"
-                  value={null}
+                  value={this.state.collectionName}
                   placeholder="Collection name"
-                  onChange={null}
+                  onChange={(e)=>{this.setState({
+                    collectionName: e.target.value
+                  })}}
                 />
               </FormGroup>
               <FormGroup>
                 <ControlLabel>
                   Options
                 </ControlLabel>
-                <Checkbox>
+                <Checkbox
+                  onClick={(e)=>{this.setState( prevState => ({
+                    isPrivateCheck: !prevState.isPrivateCheck
+                  }))}}
+                >
                   Private collection
                 </Checkbox>
               </FormGroup>
@@ -132,20 +168,31 @@ class NewCollectionModal extends Component {
                 <ControlLabel>
                   Storage options
                 </ControlLabel>
-                <FormControl componentClass="select" placeholder="Select storage">
-                  <option value={null}>Disk 1</option>
-                  <option value={null}>Disk 2</option>
-                  <option value={null}>Disk 3</option>
+                <FormControl
+                  componentClass="select"
+                  placeholder={this.state.storageName}
+                  value={this.state.storageName}
+                  onChange={(e)=>{
+                    this.setState({ storageName: e.target.value})
+                  }}
+                >
+                  <option value="Disl 1">Disk 1</option>
+                  <option value="Disk 2">Disk 2</option>
+                  <option value="Disk 3">Disk 3</option>
                   <option value={null}>Add new storage</option>
                 </FormControl>
-                <Checkbox>
+                <Checkbox
+                  onClick={(e)=>{this.setState( prevState =>({
+                    isStorageEncrypted: !prevState.isStorageEncrypted
+                  }))}}
+                >
                   Encrypt storage
                 </Checkbox>
               </FormGroup>
             </form>
           </Modal.Body>
           <Modal.Footer>
-            <Button bsStyle="primary">Create</Button>
+            <Button onClick={this.handleSubmit} bsStyle="primary">Create</Button>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
