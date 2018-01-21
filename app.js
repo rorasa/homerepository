@@ -68,6 +68,8 @@ app.route("/api/storage")
 
 app.route("/dev/setup")
   .get(dev.setupTestDatabase);
+app.route("/dev/teardown")
+  .get(dev.teardownTestDatabase);
 
 
 app.listen(3000, ()=>{

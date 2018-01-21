@@ -24,6 +24,15 @@ function setupTestDatabase(req, res){
   });
 }
 
+function teardownTestDatabase(req, res){
+  Storage.remove({ storageName: "testdrive" })
+    .then(()=>{
+      console.log("Removed all test database entries.");
+      res.sendStatus(200);
+    })
+}
+
 module.exports = {
-  setupTestDatabase
+  setupTestDatabase,
+  teardownTestDatabase
 };
