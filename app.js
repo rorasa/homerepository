@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const entry = require('./api/entry');
 const category = require('./api/category');
 const storage = require('./api/storage');
+const dev = require('./dev/dev')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -64,6 +65,9 @@ app.route("/api/storage")
   .post(storage.addNewStorage)
   .put(storage.invalidRequest)
   .delete(storage.invalidRequest);
+
+app.route("/dev/setup")
+  .get(dev.setupTestDatabase);
 
 
 app.listen(3000, ()=>{
