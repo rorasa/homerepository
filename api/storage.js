@@ -1,9 +1,21 @@
 const mongoose = require('mongoose');
+const disk = require('diskusage');
 
 const Storage = require('./models/Storage');
 
-function addNewStorageToCollection(req, res){
-  res.sendStatus(200);
+function addNewStorage(req, res){
+
+  disk.check(req.body.storagePath, (err, info)=>{
+    let storage = new Storage;
+    storage.storageName = req.body.storageName;
+    storage.basepath = req.body.storagePath;
+    storage.totalSize = info.total;
+    storage.freeSize = info.free;
+
+    console.log(storage);
+    storage.save()
+      .then(()=>{ res.sendStatus(201) });
+  });
 }
 
 function getStorageOfCollection(req, res){
@@ -15,7 +27,7 @@ function invalidRequest(req, res){
 }
 
 module.exports = {
-  addNewStorageToCollection,
+  addNewStorage,
   getStorageOfCollection,
   invalidRequest
 };
