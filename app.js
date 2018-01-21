@@ -1,16 +1,27 @@
 const express = require('express')
 const app = express();
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
 
 const entry = require('./api/entry');
 const category = require('./api/category');
 const storage = require('./api/storage');
+const dev = require('./dev/dev')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json'}));
+
+/* Connect Mongoose to MongoDB */
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/homerepository');
+
+mongoose.connection.once('open', ()=>{
+  console.log('Connected to MongoDB.');
+}).on('error', ()=>{
+  console.log('Failed to connect to MongoDB.');
+});
 
 /* Routes */
 
@@ -46,14 +57,19 @@ app.route("/api/entry")
 
 app.route("/api/storage/:collectionname")
   .get(storage.getStorageOfCollection)
-  .post(storage.addNewStorageToCollection)
+  .post(storage.invalidRequest)
   .put(storage.invalidRequest)
   .delete(storage.invalidRequest);
 app.route("/api/storage")
   .get(storage.invalidRequest)
-  .post(storage.invalidRequest)
+  .post(storage.addNewStorage)
   .put(storage.invalidRequest)
   .delete(storage.invalidRequest);
+
+app.route("/dev/setup")
+  .get(dev.setupTestDatabase);
+app.route("/dev/teardown")
+  .get(dev.teardownTestDatabase);
 
 
 app.listen(3000, ()=>{

@@ -4,7 +4,8 @@
   "description": "Home Repository 2.0 - A unified media library, book indexer, and file manager for household information organisation.",
   "main": "app.js",
   "scripts": {
-    "test": "nodemon --exec 'mocha'"
+    "test": "nodemon --exec 'mocha'",
+    "start": "nodemon --exec 'node app.js'"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/rorasa/homerepository#readme",
   "dependencies": {
+    "diskusage": "^0.2.4",
     "express": "^4.16.2",
     "mongodb": "^3.0.1",
     "mongoose": "^5.0.0-rc1"

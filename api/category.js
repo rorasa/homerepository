@@ -3,6 +3,9 @@ const mongoose = require('mongoose');
 const Category = require('./models/Category');
 
 function addNewCategory(req, res){
+  console.log("Receiving request");
+  console.log(req);
+
   res.sendStatus(200);
 }
 

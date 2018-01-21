@@ -3,13 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let storageSchema = new Schema({
-  collectionName: String,
-  basepaths: [
-    {
-      basepath: String,
-      pathuri: String
-    }
-  ]
+  storageName: String,
+  basepath: String,
+  totalSize: Number,
+  freeSize: Number,
 });
 
 let Storage = mongoose.model('Storage', storageSchema);
