@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../css/fontawesome-all.css';
 import { Modal, Table,
   FormGroup, FormControl, ControlLabel,
+  Alert,
   Checkbox, Button } from 'react-bootstrap';
 
 class AdminStorage extends Component {
@@ -64,12 +65,14 @@ class NewStorageModal extends Component {
     this.state = {
       isShowed: false,
       storageName: null,
-      storagePath: null
+      storagePath: null,
+      showAlert: false,
+      alertStyle: 'success',
     }
 
     this.handleClose = this.handleClose.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
-    this.handelSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleClose(){
@@ -87,6 +90,7 @@ class NewStorageModal extends Component {
   render(){
     return (
       <div>
+        <StorageAlert style={this.state.alertStyle} show={this.state.showAlert}/>
         <a onClick={this.handleOpen}>
           <i className="fas fa-plus"></i>&nbsp;Add new storage
         </a>
@@ -188,8 +192,54 @@ class DeleteModal extends Component {
       </span>
     );
   }
+}
 
+class StorageAlert extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isShowed: props.show,
+      style: props.style
+    }
 
+    this.onDismiss = this.onDismiss.bind(this);
+  }
+
+  onDismiss(){
+    this.setState({
+      isShowed: false
+    });
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      isShowed: nextProps.show,
+      style: nextProps.style
+    });
+  }
+
+  render(){
+    const successAlert = (
+      <Alert bsStyle="success" onDismiss={this.onDismiss}>
+        New storage added succussfully.
+      </Alert>
+    );
+    const failedAlert = (
+      <Alert bsStyle="danger" onDismiss={this.onDismiss}>
+        Failed to add a new storage.
+      </Alert>
+    );
+
+    if (this.state.isShowed){
+      if (this.state.style === "success"){
+        return successAlert;
+      }else{
+        return failedAlert;
+      }
+    }else{
+      return null;
+    }
+  }
 }
 
 export default AdminStorage;
