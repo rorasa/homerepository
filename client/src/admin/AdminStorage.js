@@ -83,8 +83,39 @@ class NewStorageModal extends Component {
     this.setState({ isShowed: true });
   }
 
-  handleSubmit(){
-    return
+  handleSubmit(e){
+    e.preventDefault();
+    console.log("Submiting POST addNewStorage");
+
+    let payload = {
+      storageName: this.state.storageName,
+      storagePath: this.state.storagePath
+    };
+
+    fetch("/api/storage",{
+      method: 'post',
+      headers: {
+        'Content-type': "application/json"
+      },
+      body: JSON.stringify(payload)
+    }).then((res)=>{
+      if(res.status === 201){
+        console.log("New storage added");
+        this.setState({
+          isShowed: false,
+          alertStyle: 'success',
+          showAlert: true
+        });
+      }else{
+        this.setState({
+          isShowed: false,
+          alertStyle: 'danger',
+          showAlert: true
+        });
+      }
+    }).catch((res)=>{
+      console.log(res);
+    });
   }
 
   render(){
