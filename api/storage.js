@@ -18,6 +18,14 @@ function addNewStorage(req, res){
   });
 }
 
+function getAllStorages(req, res){
+  Storage.find({},(err, storages)=>{
+    res.json(storages);
+  }).catch((err)=>{
+    res.sendStatus(500);
+  });
+}
+
 function getStorageOfCollection(req, res){
   res.sendStatus(200);
 }
@@ -28,6 +36,7 @@ function invalidRequest(req, res){
 
 module.exports = {
   addNewStorage,
+  getAllStorages,
   getStorageOfCollection,
   invalidRequest
 };

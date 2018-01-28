@@ -11,6 +11,16 @@ class AdminStorage extends Component {
   }
 
   render(){
+    fetch("/api/storage",{ method: 'get' })
+      .then((res)=>{
+        res.json().then((data)=>{
+          console.log(data);
+        });
+      })
+      .catch((res)=>{
+        console.log(res);
+      });
+
     return (
       <div>
         <h1>Manage Storages</h1>

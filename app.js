@@ -61,7 +61,7 @@ app.route("/api/storage/:collectionname")
   .put(storage.invalidRequest)
   .delete(storage.invalidRequest);
 app.route("/api/storage")
-  .get(storage.invalidRequest)
+  .get(storage.getAllStorages)
   .post(storage.addNewStorage)
   .put(storage.invalidRequest)
   .delete(storage.invalidRequest);
